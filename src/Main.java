@@ -1,4 +1,6 @@
+import br.com.dio.desafio.dominio.Bootcamp;
 import br.com.dio.desafio.dominio.Curso;
+import br.com.dio.desafio.dominio.Dev;
 import br.com.dio.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -15,14 +17,49 @@ public class Main {
         curso2.setDescricao("Descrição Curso Js");
         curso2.setCargaHoraria(4);
 
+
         Mentoria mentoria = new Mentoria();
         mentoria.setTitulo("mentoria de java");
         mentoria.setDescricao("descrição mentoria java");
         mentoria.setData(LocalDate.now());
 
-        System.out.println(curso1);
+        /*System.out.println(curso1);
         System.out.println(curso2);
-        System.out.println(mentoria);
+        System.out.println(mentoria);*/
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Descrição bootcamp Java Developer");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(curso2);
+        bootcamp.getConteudos().add(mentoria);
+
+        Dev devBrunna = new Dev();
+        devBrunna.setNome("Brunna");
+        devBrunna.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Brunna:" + devBrunna.getConteudosInscritos());
+
+        devBrunna.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Brunna:" + devBrunna.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos Brunna:" + devBrunna.getConteudosConcluidos());
+
+
+        System.out.println("________");
+
+        Dev devGabriella = new Dev();
+        devGabriella.setNome("Gabriella");
+        devGabriella.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos Gabriella:" + devGabriella.getConteudosInscritos());
+
+        devGabriella.progredir();
+        System.out.println("-");
+        System.out.println("Conteúdos Inscritos Gabriella:" + devGabriella.getConteudosInscritos());
+        System.out.println("Conteúdos Concluídos Gabriella:" + devGabriella.getConteudosConcluidos());
+
+
+
+
 
     }
 }
